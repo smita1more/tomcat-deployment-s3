@@ -1,0 +1,1 @@
+systectl start tomcat
