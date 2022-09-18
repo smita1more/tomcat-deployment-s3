@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /target/ROOT.war
+    destination: /opt/tomcat/webapps
+hooks:
+  ApplicationStop:
+    - location: /opt/tomcat/bin/shutdown.sh
+      timeout: 300
+  ApplicationStart:
+    - location: /opt/tomcat/bin/startup.sh
+    - location: scripts/start_application
+      timeout: 300
+  ValidateService:
+    - location: scripts/basic_health_check.sh
