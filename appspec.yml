@@ -4,9 +4,13 @@ files:
   - source: target/ROOT.war
     destination: /opt/tomcat/webapps
 hooks:
-  ApplicationStop:
-    - location: /opt/tomcat/bin/shutdown.sh
-      timeout: 300
+  BeforeInstall:
+    - location: Scripts/stop.sh
+  AfterInstall:
+    - location: Scripts/stop.sh
+      timeout: 180
   ApplicationStart:
-    - location: /opt/tomcat/bin/startup.sh
-      timeout: 300
+    - location: Scripts/start.sh
+      timeout: 3600
+  ValidateService:
+    - location: Scripts/test.sh
