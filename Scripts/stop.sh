@@ -1,1 +1,1 @@
-systectl stop tomcat
+systemctl stop tomcat
