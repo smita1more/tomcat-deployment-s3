@@ -4,13 +4,7 @@ files:
   - source: ./
     destination: /opt/tomcat/webapps
 hooks:
-  BeforeInstall:
-    - location: Scripts/stop.sh
-  AfterInstall:
-    - location: Scripts/stop.sh
-      timeout: 180
   ApplicationStart:
-    - location: Scripts/start.sh
+    - location: restart.sh
       timeout: 3600
-  ValidateService:
-    - location: Scripts/test.sh
+  
