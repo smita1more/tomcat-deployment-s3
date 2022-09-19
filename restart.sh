@@ -1,1 +1,1 @@
-systemctl restart tomcat.service
+sudo systemctl restart tomcat.service
